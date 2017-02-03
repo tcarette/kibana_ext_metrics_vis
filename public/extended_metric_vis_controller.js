@@ -3,6 +3,8 @@ import AggResponseTabifyTabifyProvider from 'ui/agg_response/tabify/tabify';
 import uiModules from 'ui/modules';
 const module = uiModules.get('kibana/extended_metric_vis', ['kibana']);
 
+var numeral = require('numeral');
+
 module.controller('KbnExtendedMetricVisController', function ($scope, Private) {
   const tabifyAggResponse = Private(AggResponseTabifyTabifyProvider);
   const metrics = $scope.metrics = [];
@@ -16,7 +18,7 @@ module.controller('KbnExtendedMetricVisController', function ($scope, Private) {
     $scope.vis.params.outputs.forEach(function (output) {
       try {
         const func = Function("metrics", "return " + output.formula);
-        output.value = func(metrics) || "?";
+        output.value = numeral(func(metrics)).format($scope.vis.params.format) || "?";
       } catch (e) {
         output.value = '?';
       }

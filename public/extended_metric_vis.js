@@ -27,6 +27,7 @@ function ExtendedMetricVisProvider(Private) {
     params: {
       defaults: {
         handleNoResults: true,
+        format: '0.00',
         fontSize: 60,
         outputs: [
           {

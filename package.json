@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "main": "index.js",
   "kibana": {
-    "version": "5.0.0"
+    "version": "5.2.0"
   },
   "author": "Olaf Horstmann <oh@omm-solutions.de>",
-  "website": "http://www.omm-solutions.de"
+  "website": "http://www.omm-solutions.de",
+  "dependencies": {
+    "numeral": "^2.0.4"
+  }
 }
